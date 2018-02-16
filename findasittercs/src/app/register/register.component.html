@@ -1,3 +1,89 @@
-<p>
-  register works!
-</p>
+<form [formGroup]="registerForm" novalidate (submit)="onSubmitRegister(registerFrom)">
+
+    <div>
+      <label>First Name:
+          <input formControlName="firstname">
+      </label>
+      <div *ngIf="registerForm.controls.firstname?.required && registerForm.controls.firstname.touched">
+          Please fill out your first name
+      </div>
+    </div>
+  
+    <div>
+        <label>Last Name:
+            <input formControlName="lastname">
+        </label>
+        <div *ngIf="registerForm.controls.lastname?.required && registerForm.controls.lastname.touched">
+          Please fill out your last name
+        </div>
+      </div>
+    
+    <div>
+        <label>Age:
+            <input formControlName="age">
+        </label>
+        <div *ngIf="registerForm.controls.age?.required && registerForm.controls.age.touched">
+          Please fill out your age
+        </div>
+      </div>
+
+    <div>
+      <label>Years of experience:
+          <input formControlName="yearsOfExperience">
+      </label>
+      <div *ngIf="registerForm.controls.yearsOfExperience?.required && registerForm.controls.yearsOfExperience.touched">
+        Please fill out how many years of experience you have had
+      </div>
+    </div>
+
+    <div>
+      <label>Region:
+          <input formControlName="region">
+      </label>
+      <div *ngIf="registerForm.controls.region?.required && registerForm.controls.region.touched">
+        Please fill out your region
+      </div>
+    </div>
+
+    <div>
+      <label>Picture:
+          <input formControlName="picture">
+      </label>
+      <div *ngIf="registerForm.controls.picture?.required && registerForm.controls.picture.touched">
+        Please fill upload your picture
+      </div>
+    </div>
+
+    <div>
+      <label>Gender:
+          <input formControlName="gender">
+      </label>
+      <div *ngIf="registerForm.controls.gender?.required && registerForm.controls.gender.touched">
+        Please fill out your gender
+      </div>
+    </div>
+
+    <div>
+      <label>Phone:
+          <input formControlName="phone">
+      </label>
+      <div *ngIf="registerForm.controls.phone?.required && registerForm.controls.phone.touched">
+        Please fill out your phone number
+      </div>
+    </div>
+        
+  
+    <button type="submit" [disabled]="registerForm.invalid">
+        Submit Register
+    </button>
+  
+    <p>
+        Form value: {{ registerForm.value | json }}
+    </p>
+  
+    <p>
+      Is form valid: {{ registerForm.valid | json }}
+    </p>  
+  
+  </form>
+  
